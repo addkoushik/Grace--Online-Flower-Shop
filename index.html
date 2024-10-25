@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace- Online Flower Shop</title>
+</head>
+<style>
+    :root{
+   --pink:#e84393;
+}
+*{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: verdana, Geneva, Tahoma, sans-serif;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+section{
+    padding:2 rem 9%;
+}
+
+/* aaaaaaa */
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    color: #333;
+    padding: 1rem;
+    margin: 2rem 0;
+    background: rgba(255, 51, 153,.05);
+}
+
+.heading span{
+    color: var(--pink);
+
+}
+
+.btn{
+    display: inline-block;
+    margin-top:1 rem;
+    border-radius:5 rem;
+    background: #333;
+    color: #fff;
+    padding:.9 rem 3.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+.btn.hover{
+    background: var(--pink);
+}
+
+header{
+   position: fixed;
+   top: 0;  left: 0; right:0;
+   background: rgb(244, 212, 153);
+   padding: 2rem 9%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   z-index: 1000;
+   box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .logo{
+    font-size: 3rem;
+    color:#333;
+    font-weight: bolder;
+}
+
+header .logo span{
+    color:var(--pink);
+}
+
+header .navbar a{
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    color: #666;
+}
+
+header .navbar a:hover{
+    color: var(--pink); /* nav bar text uppar color */
+}
+
+header .icons a{
+    font-size: 3rem;
+    color: #333;
+    margin-left: 1.5rem;
+}
+
+header.icons a:hover{
+    color: var(--pink);
+}
+
+header #toggler{
+    display: none;
+}
+
+header .fa-bars{
+    font-size:3rem;
+    color: #333;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    border: 1rem solid rgba(0,0,0,.3);
+    display: none;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: url(https://images.unsplash.com/photo-1487530811176-3780de880c2d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+}
+
+.home .content{
+    max-width: 50rem;
+}
+.home .content{
+    font-size: 1.5rem;
+    color:var(--pink);
+}
+.home .content.span{
+    font-size: 3.5rem;
+    color:var(--pink);
+    padding: 1rem 0;
+    line-height: 1.5;
+}
+.home .content span{
+    font-size: 1.5rem;
+    color: rgb(254, 254, 254);
+    padding: 1rem 0;
+    line-height: 1.5;
+}
+
+.about .row{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding:2rem 0;
+    padding-bottom: 3rem;
+}
+.about .row .video-container{
+    flex:1 1 40rem;
+    position: relative;
+}
+.about .row .video-container video{
+    width: 100%;
+    border: 1.5rem solid #fff;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    height: 100%;
+    object-fit: cover;
+}
+.about.row .video-container h3{
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    font-size: 3rem;
+    background: #fff;
+    width: 100%;
+    padding: 1rem 2rem;
+    text-align: center;
+    mix-blend-mode: screen;
+}
+.about .row .content{
+    flex:1 1 40rem;
+}
+.about .row .content h3{
+    font-size: 3rem;
+    color: #333;
+}
+.about .row .content p{
+    font-size: 1.5rem;
+    color: #999;
+    padding:5rem 0;
+    padding-top:1rem;
+    line-height:1.5rem;
+}
+
+.icons-container{
+    background: #eee;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.icons-container .icons{
+    background:#fff;
+    border: 1rem solid rgba(0,0,0,.1);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    flex: 1 1 25rem;
+}
+.icons-container .icons img{
+    height: 5rem;
+    margin-right: 2rem;
+}
+.icons-container .icons h3{
+    color: #333;
+    padding-bottom: .5rem;
+    font-size: 1.5rem;
+}
+.icons-container .icons span{
+    color: #555;
+    font-size: 1.3rem;
+}
+
+.products .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.products .box-container .box{
+    flex: 1 1 30rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+    border: 1rem solid rgba(0,0,0,.1);
+    position: relative;
+}
+.products .box-container .box .discount{
+  position: absolute;
+  top: 1rem; left: 1rem;
+  padding: 7rem 1rem;
+  font-size: 2rem;
+  color: var(--pink);  
+  z-index: 1;
+  border-radius: .5rem;
+}
+.products .box-container .box .image{
+    position: relative;
+    text-align: center;
+    padding-top: 2rem;
+    overflow: hidden;
+}
+.products .box-container .box .img{
+    height: 25rem;
+}
+.products .box-container .box.hover .img{
+    transform: scale(1.1);
+}
+.products .box-container .box .image .icons{
+   position: absolute;
+    bottom: -7rem;left: 0; right: 0;
+    display: flex;
+}
+.products .box-container .box:hover .image .icons{
+    bottom: 0;
+}
+.products .box-container .box .image .icons a{
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    width: 50%;
+    background: var(--pink);
+    color: #fff;
+}
+.products .box-container .box .image .icons .cart-btn{
+   border-left: .1rem solid #fff7;
+   border-right: .1rem solid #fff7;
+   width: 100%; 
+}
+.products .box-container .box .image .icons a:hover{
+    background: #333;
+}
+.products .box-container .box .content{
+    padding: 2rem;
+    text-align: center;
+}
+.products .box-container .box .content h3{
+    font-size: 2.5rem;
+    color: #333;
+}
+.products .box-container .box .content .price{
+    font-size: 2.5rem;
+    color: var(--pink);
+    font-weight: bolder;
+    padding-top: 1rem;
+}
+.products .box-container .box .content .price span{
+    font-size: 2.5rem;
+    color: #999;
+    font-weight: lighter;
+    padding-top: 1rem;
+    text-decoration:line-through ;
+}
+/* more */
+.h4{
+    text-align: center;
+    align-items: center;
+    color: #999;
+    text-shadow: #e84393;
+    text-decoration: solid;
+}
+.h2{
+    text-align: center;
+    align-items: center;
+    color: #333;
+    border: #e84393;
+    border-radius: 2rem;
+    padding-top: 1rem;
+    padding-left: .5rem;
+    padding-bottom: 1rem;
+    padding-right: .5rem;
+}
+.slider {
+        width: 500px;
+        height: 300px;
+        background-color: yellow;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0px;
+        text-align: center;
+        overflow: hidden;
+      }
+      .image-container {
+        width: 1500px;
+        background-color: pink;
+        height: 300px;
+        clear: both;
+        position: relative;
+        -webkit-transition: left 2s;
+        -moz-transition: left 2s;
+        -o-transition: left 2s;
+        transition: left 2s;
+      }
+      .slide {
+        float: left;
+        margin: 0px;
+        padding: 0px;
+        position: relative;
+      }
+      #slide-1:target ~ .image-container {
+        left: 0px;
+      }
+      #slide-2:target ~ .image-container {
+        left: -500px;
+      }
+      #slide-3:target ~ .image-container {
+        left: -1000px;
+      }
+      .buttons {
+        position: relative;
+        top: -20px;
+      }
+      .buttons a {
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        border-radius: 50px;
+        background-color: lightgreen;
+      }
+
+.review .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.review .box-container .box{
+    flex: 1 1 30rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+    padding: 3rem 2rem;
+    position: relative;
+    border: 1rem solid rgba(0,0,0,.1);
+}
+.review .box-container .box .fa-quote-right{
+    position: absolute;
+    bottom: 3rem; right: 3rem;
+    font-size: 6rem;
+    color: #eee;
+}
+.review .box-container .box .stars i{
+    color: var(--pink);
+    font-size: 2rem;
+}
+.review .box-container .box p{
+    color: #999;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-top: 2rem;
+}
+.review .box-container .box .user{
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+}
+.review .box-container .box .user img{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+.review .box-container .box .user h3{
+    font-size: 2rem;
+    color: #333;
+}
+.review .box-container .box .user span{
+    font-size: 1.5rem;
+    color: #999;
+}
+
+
+
+.contact .row{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 1.5rem;
+    align-items:center;
+}
+.contact .row form{
+    flex: 1 1 40rem;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border: 1rem solid rgba(0,0,0,.1);
+    background: #fff;
+    border-radius: .5rem;
+}
+.contact .row .image{
+    flex: 1 1 40rem;
+}
+.contact .row .image img{
+    width:100%;
+}
+.contact .row form .box{
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: #333;
+    text-transform: none;
+    border: 1rem solid rgba(0,0,0,.1);
+    border-radius: .5rem;
+    margin: .7rem 0;
+    width: 100%;
+}
+.contact .row form .box:focus{
+    border-color: var(--pink);
+}
+.contact .row form textarea{
+    height: 15rem;
+    resize: none;
+}
+
+/* footer part */
+
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.footer .box-container .box{
+    flex: 1 1 25rem;
+}
+.footer .box-container .box h3{
+    color: #333;
+    font-size: 2.5rem;
+    padding: 1rem 0;
+}
+.footer .box-container .box a{
+    display: block;
+    color: #666;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+.footer .box-container .box a:hover{
+    color: var(--pink);
+    text-decoration: underline;
+}
+.footer .box-container .box img{
+    margin-top: 1rem;
+}
+.footer .credit{
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 2.5rem;
+    font-size: 2rem;
+    color: #333;
+    border-top: .1rem solid rgba(0,0,0,.1);
+}
+.footer .credit span{
+    color: var(--pink);
+}
+
+
+/* Detailas css section */
+.details{
+    border-style: solid;
+    border-color: #333;
+    border-radius: 12px;
+    padding: 30px;
+}
+.details summary{
+    text-align: center;
+    color: black;
+}
+.details p{
+    text-align: center;
+    color: blue;
+}
+.size{
+    text-align: center;
+}
+.size h1{
+    color: var(--pink);
+}
+.size h2{
+    color: #333;
+}
+
+
+/* silk flower */
+.booknow{
+    text-align: center;
+}
+.silk{
+    border-style: solid;
+    border-radius: 10px;
+    color: #999
+}
+
+/* card section start */
+/* CSS for the container */
+.container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    /* CSS for the card */
+    .card {
+      width: 500px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    /* CSS for the card image */
+    .card-image {
+      width: 475px;
+      height: 475px;
+      border-radius: 100%;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    
+    /* CSS for the card title */
+    .card-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    /* CSS for the card content */
+    .card-content {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    
+    /* CSS for the button */
+    .card-button {
+      background-color: #ff4081;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .card-button:hover {
+      background-color: #ff80ab;
+    }
+/* card section end */
+
+
+
+/* media queries */
+@media (max-width:767px){
+
+    html{
+    font-size: 55%;
+    
+}
+header{
+    padding: 2rem;
+}
+
+section{
+    padding: 2rem;
+}
+
+.home{
+    background-position: left;
+}
+}
+
+@media (max-width:767px){
+    html .fa-bars{
+        display: block;
+    }
+    header .navbar{
+        position:absolute;
+         top:100; left:0; right:0;
+         background:#eee ;
+         border-top:.1rem solid rgba(0,0,0,.1) ;
+         clip-path: polygon(0 0,100% 0, 100% 0, 0 0);
+    }
+
+    .headr .navbar a{ 
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background:#fff ;
+        border:1rem solid rgba(0,0,0,.1) ;
+        display: block;
+    } */
+
+    header #toggler:checked ~ .navbar{
+        clip-path: polygon(0 0,100% 0, 100% 100%, 0% 100%);
+    }
+
+    header.navbar a{
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: #fff;
+        border: 1rem solid rgba(0,0,0,.1);
+        display: block;
+    }
+    .home .content h3{
+        font-size: 5rem;
+    }
+    .home .content span{
+        font-size: 2.5rem;
+    }
+    .icons-container .icons h3{
+    font-size: 2rem;
+}
+.icons-container .icons span{
+    font-size: 1.7rem;
+
+}
+}
+
+
+
+
+@media (max-width:450px){
+
+html{
+font-size: 50%;
+
+}
+.heading{
+    font-size: 3rem;
+}
+}
+
+
+</style>
+<body>
+ 
+    <link rel="stylesheet" href="link rel="stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+<header>
+
+    <input type="checkbox" name="" id="toggler">
+    <lable for="toggler" class="fas fa-bars"></i></lable>
+    <a href="#" class="logo">Grace<span>.</span></a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#products">products</a>
+        <a href="#review">review</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+    <div class="icons">
+        <a href="#" class="fas fa-heart"><img src="https://purepng.com/public/uploads/large/heart-icon-y1k.png " height="25" alt=""></a>
+        <a href="#" class="fas fa-shopping-cart"><img src="https://webstockreview.net/images/shopping-cart-icon-png-7.png" height="25" alt=""></a>
+        <a href="#" class="fas fa-user"><img src="https://rusautolack.ru/themes/ral2020/assets/img/icon_user_red.png" height="25" alt=""></a>
+    </div>
+
+</header>
+
+<section class="home" id="home">
+    <div class="content">
+    <h3>Dive into a world of vibrant blooms. Here, you'll find a vibrant collection of flowers that celebrate the beauty of nature. From lush petals to exotic blossoms, our website is crafted to bring you closer to the wonders of the floral world.</h3>
+    <span>There are always flowers for those who want to see them</span>
+    
+         <a href="#" class="btn"><b>Grace</b></a>
+         </div>
+</section>
+<section class="about" id="about">
+
+    <h1 class="heading"> <span> about </span> us </h1>
+
+    <div class="row">
+        
+        <div class="content">
+            <h3>Why choose us?</h3>
+            <p>Our website is built on a deep appreciation for the beauty of flowers, carefully curating only the finest selections to bring clients an exceptional floral experience. We understand that every flower tells a story, so we choose only those blooms that truly reflect elegance, freshness, and vibrancy. With us, clients are guaranteed quality and aesthetic appeal, perfect for any occasion</p>
+            <p>You can also get some offers and discounts from time to time that make your online flower shopping more affordable and enjoyable</p>
+            <a href="#" class="btn">Learn more</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="products" id="products">
+
+    <h1 class="heading"> latest <span> products </span></h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="https://img.freepik.com/premium-photo/classic-floral-bouquet-elegant-vase_1223049-7026.jpg?w=740" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart">Like</a>
+                    <a href="http://localhost/flower_phpcode/index.php" class="cart-btn">Buy now</a>
+                    <a href="#" class="fas fa-share">Share</a>
+                </div>
+            </div>
+
+            <div class="content">
+                <h3>Flower Pot</h3>
+                <div class="price">rs.899<span>rs.1499</span></div>
+            </div>
+        </div>
+        <div class="box">
+            <span class="discount">-15%</span>
+            <div class="image">
+                <img src="https://images.stockcake.com/public/5/9/4/594ecbd7-a3cf-4b08-aecc-3cb2c95bd785_large/elegant-rose-arrangement-stockcake.jpg" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart">Like</a>
+                    <a href="http://localhost/flower_phpcode/index.php" class="cart-btn">Buy now</a>
+                    <a href="#" class="fas fa-share">Share</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Classic Roses</h3>
+                <div class="price">rs.799<span>  rs.999</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="https://img.freepik.com/premium-photo/side-view-white-color-chrysanthemum-flowers-isolated-black-background_960396-572428.jpg?w=826" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart">Like</a>
+                    <a href="http://localhost/flower_phpcode/index.php" class="cart-btn">Buy now</a>
+                    <a href="#" class="fas fa-share">Share</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Chrysanthemums</h3>
+                <div class="price">rs.299<span>rs.449</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-18%</span>
+            <div class="image">
+                <img src="https://img.freepik.com/premium-photo/elegant-botanical-illustration-lily-valley-flowers-with-lush-green-leaves-educational-use_416256-40086.jpg?w=826" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart">Like</a>
+                    <a href="http://localhost/flower_phpcode/index.php" class="cart-btn">Buy now</a>
+                    <a href="#" class="fas fa-share">Share</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Lily of the Valley</h3>
+                <div class="price">rs.199<span>rs.399</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-12%</span>
+            <div class="image">
+                <img src="https://st2.depositphotos.com/16888564/42317/i/450/depositphotos_423178732-stock-photo-purple-flowers-italian-asters-michaelmas.jpg" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-heart">Like</a>
+                    <a href="http://localhost/flower_phpcode/index.php" class="cart-btn">Buy now</a>
+                    <a href="#" class="fas fa-share">Share</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Aster</h3>
+                <div class="price">rs.499<span>rs.699</span></div>
+            </div>
+        </div>
+
+        
+    </div>
+</section>
+<br>
+
+<section class="review" id="review">
+
+    <h1 class="heading">customer's <span>review</span></h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>Onlineflowershop is the first place I go to whenever I need to send gifts.
+                They are always on time and all their products match exactly as the picture, great quality.
+                If there is any clarification needed, they won't hesitate in calling me internationally. I have been using them for 3 years and will continue to do so.</p>
+            <div class="user">
+                <img src="https://pbs.twimg.com/media/Fv4DArwaMAAzmy4?format=jpg&name=small" alt="">
+                <div class="user-info">
+                    <h3>Pratibha patel</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>The flowers were lovely, and the ordering process was excellent. However, the card was missing, and the delivery person couldn't tell the receiver who it was from. This was disappointing.</p>
+            <div class="user">
+                <img src="https://pbs.twimg.com/media/Fv4EBxTaMAYGzpe?format=jpg&name=900x900" alt="">
+                <div class="user-info">
+                    <h3>Nikita Dandapat</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>Quick and easy to order, especially from the UK and lots of options. Delivered on time to the instructions left. Truly beautiful bouquet.</p>
+            <div class="user">
+                <img src="https://pbs.twimg.com/media/Fv4DAr2aEAAZyLi?format=jpg&name=small" alt="">
+                <div class="user-info">
+                    <h3>Ankita Nayak</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>It was the first time I ordered online from outside UAE. The flowers arrived during the time I picked and our daughter sent pic and they were beautiful. It made her day. Would definitely order from here again. Highly recommended</p>
+            <div class="user">
+                <img src="https://images.unsplash.com/photo-1677890975420-6518baceda27?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NDN8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="">
+                <div class="user-info">
+                    <h3>Sudeep Nayak</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>Buying flowers from just a picture on line is always a worry as to what will actually turn up on time.
+                I have to saythe recipient was very happy with both flower arrangements as was I. They surpassed my expectations. Thank you very much indeed.
+                Easy to order, arrived well on time and beautiful flowers. Thank you once again.</p>
+            <div class="user">
+                <img src="https://pbs.twimg.com/media/Fv4DAtnaYAASJFA?format=jpg&name=small" alt="">
+                <div class="user-info">
+                    <h3>Pritam Kumar Patel</h3>
+                    <span>happy customer</span>
+                </div>
+            </div>
+            <span class="fas fa-quote-right"></span>
+        </div>
+
+
+</section>
+
+<div class="size">
+<h1>Commonly asked</h1><h2>Questions</h2><br>
+</div>
+<!-- .. -->
+
+<div class="details">
+    <details>
+    <Summary><b>How do i place an order on your website ?</b></Summary>
+    <h3>Once you find the perfect one click on add to cart and then go to cart and place order.</h3><br><br>
+</details>
+</div><br>
+<!-- .. -->
+
+<div class="details">
+<details>
+    <Summary><b>Do you offer same day delivery ?</b></Summary>
+    <h3>If the distance is in between 25km then it's possible for same day delivery.</h3>
+</details>
+</div><br>
+<!-- .. -->
+        
+<div class="details">
+    <details>
+        <Summary><b>What payment method do you accept ?</b></Summary>
+        <h3>Cash on delivery only.</h3>
+    </details>
+    </div><br>
+<!--   ..   -->
+
+<div class="details">
+        <details>
+            <Summary><b>Are there any aditional charges for delivery ?</b></Summary>
+            <h3>If your distance is 15km above then 1.75 rupees per km is added as delivery charges.</h3>
+        </details>
+        </div><br>
+<!--    ...     -->
+        
+        <div class="details">
+            <details>
+                <Summary><b>Can I include a personalized message with my flower order ?</b></Summary>
+                <h3>yes ! why not. We are here for satisfy our customer.</h3>
+            </details>
+            </div><br>
+
+<section class="contact" id="contact">
+
+    <h1 class="heading"><span> contact </span> us </h1>
+
+    <div class="row">
+
+        <form action="">
+            <input type="text" placeholder="name" class="box">
+            <input type="email" placeholder="email" class="box">
+            <input type="number" placeholder="number" class="box">
+            <textarea name="" class="box" placeholder="message" id="" cols="30" rows="10"></textarea>
+            <input type="submit" value="send message" class="btn">
+        </form>
+
+    </div>
+</section>
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">about</a>
+            <a href="#">products</a>
+            <a href="#">review</a>
+            <a href="#">contact</a>
+        </div>
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="#">my account</a>
+            <a href="#">my order</a>
+            <a href="#">my favourite</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="tel: +91-123-123-4567" target="_main">+91-123-123-4567<i class="fab fa-phone"></i></a>
+            <a href="mailto:adkoushik345@gmail.com">adkoushik345@gmail.com<i class="fas fa-envelope"></i></a>
+    </footer><hr>
+            <a href="https://www.bing.com/search?pglt=41&q=jharsuguda&cvid=c23c0e4f679d4d5da91478ed79e6cf76&aqs=edge.0.0j69i57j46j0l4j46j69i60.5155j0j1&FORM=ANNTA1&PC=HCTS">Jalandhar, Punjab </a>
+            <img src="#" alt="">
+        </div>
+    </div>
+
+
+</section>
+
+
+</body>
+</html>
